@@ -114,6 +114,7 @@
             cell.waitingCell.animationDuration = 1.0; // Set the animation duration
             cell.waitingCell.animationRepeatCount = 0; // Set the repeat count
             [cell.waitingCell startAnimating];
+            
         }
         
         return cell;
