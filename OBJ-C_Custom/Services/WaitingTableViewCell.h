@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WaitingTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *waitingCell;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
 
 @end
 

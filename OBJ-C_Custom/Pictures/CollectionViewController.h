@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewController : UICollectionViewController {
-    NSArray *image;
+    NSArray *imageArray;
     NSArray *fruits;
 }
 

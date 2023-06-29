@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		351043402A401F4B008922EB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3510433F2A401F4B008922EB /* DetailViewController.m */; };
 		351043432A4024B5008922EB /* SecondDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351043422A4024B5008922EB /* SecondDetailViewController.m */; };
-		351043462A40504C008922EB /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 351043452A40504C008922EB /* TestTableViewCell.m */; };
-		351043492A405196008922EB /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351043482A405196008922EB /* TestTableViewController.m */; };
 		3510434C2A4887C7008922EB /* WaitingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3510434B2A4887C7008922EB /* WaitingTableViewCell.m */; };
 		3550EEB92A3B11FB004A66DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3550EEB82A3B11FB004A66DA /* AppDelegate.m */; };
 		3550EEBC2A3B11FB004A66DA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3550EEBB2A3B11FB004A66DA /* SceneDelegate.m */; };
@@ -25,6 +23,8 @@
 		3564F0332A3FFBE400AB7C58 /* SecondTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564F0322A3FFBE400AB7C58 /* SecondTableViewCell.m */; };
 		3564F0362A4001F700AB7C58 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564F0352A4001F700AB7C58 /* CollectionViewController.m */; };
 		3564F0392A40020400AB7C58 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3564F0382A40020400AB7C58 /* CollectionViewCell.m */; };
+		359B10342A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 359B10332A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.m */; };
+		359B103A2A4D1CCC003EF443 /* ActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 359B10392A4D1CCC003EF443 /* ActivityIndicatorView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +32,6 @@
 		3510433F2A401F4B008922EB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		351043412A4024B5008922EB /* SecondDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondDetailViewController.h; sourceTree = "<group>"; };
 		351043422A4024B5008922EB /* SecondDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondDetailViewController.m; sourceTree = "<group>"; };
-		351043442A40504C008922EB /* TestTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
-		351043452A40504C008922EB /* TestTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
-		351043472A405196008922EB /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
-		351043482A405196008922EB /* TestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
 		3510434A2A4887C6008922EB /* WaitingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaitingTableViewCell.h; sourceTree = "<group>"; };
 		3510434B2A4887C7008922EB /* WaitingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaitingTableViewCell.m; sourceTree = "<group>"; };
 		3550EEB42A3B11FB004A66DA /* OBJ-C_Custom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OBJ-C_Custom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +57,9 @@
 		3564F0352A4001F700AB7C58 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		3564F0372A40020400AB7C58 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		3564F0382A40020400AB7C58 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		359B10322A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityIndicatorHeaderFooterView.h; sourceTree = "<group>"; };
+		359B10332A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityIndicatorHeaderFooterView.m; sourceTree = "<group>"; };
+		359B10392A4D1CCC003EF443 /* ActivityIndicatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityIndicatorView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +103,6 @@
 				3550EEC82A3B11FC004A66DA /* Info.plist */,
 				3550EEC92A3B11FC004A66DA /* main.m */,
 				3550EF082A3F36FD004A66DA /* Landmarks.plist */,
-				351043442A40504C008922EB /* TestTableViewCell.h */,
-				351043452A40504C008922EB /* TestTableViewCell.m */,
-				351043472A405196008922EB /* TestTableViewController.h */,
-				351043482A405196008922EB /* TestTableViewController.m */,
 			);
 			path = "OBJ-C_Custom";
 			sourceTree = "<group>";
@@ -136,6 +131,7 @@
 				351043422A4024B5008922EB /* SecondDetailViewController.m */,
 				3510434A2A4887C6008922EB /* WaitingTableViewCell.h */,
 				3510434B2A4887C7008922EB /* WaitingTableViewCell.m */,
+				359B103B2A4D2029003EF443 /* ActivityIndicator */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +147,16 @@
 				3510433F2A401F4B008922EB /* DetailViewController.m */,
 			);
 			path = Pictures;
+			sourceTree = "<group>";
+		};
+		359B103B2A4D2029003EF443 /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				359B10322A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.h */,
+				359B10332A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.m */,
+				359B10392A4D1CCC003EF443 /* ActivityIndicatorView.xib */,
+			);
+			path = ActivityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3550EEC72A3B11FC004A66DA /* LaunchScreen.storyboard in Resources */,
+				359B103A2A4D1CCC003EF443 /* ActivityIndicatorView.xib in Resources */,
 				3550EEC42A3B11FC004A66DA /* Assets.xcassets in Resources */,
 				3550EF092A3F36FD004A66DA /* Landmarks.plist in Resources */,
 				3550EEC22A3B11FB004A66DA /* Main.storyboard in Resources */,
@@ -225,9 +232,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3564F0362A4001F700AB7C58 /* CollectionViewController.m in Sources */,
+				359B10342A4D1B8A003EF443 /* ActivityIndicatorHeaderFooterView.m in Sources */,
 				3510434C2A4887C7008922EB /* WaitingTableViewCell.m in Sources */,
-				351043462A40504C008922EB /* TestTableViewCell.m in Sources */,
-				351043492A405196008922EB /* TestTableViewController.m in Sources */,
 				3564F0332A3FFBE400AB7C58 /* SecondTableViewCell.m in Sources */,
 				351043432A4024B5008922EB /* SecondDetailViewController.m in Sources */,
 				3550EEBF2A3B11FB004A66DA /* ViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "SecondTableViewCell.h"
 #import "SecondDetailViewController.h"
 #import "WaitingTableViewCell.h"
+#import "ActivityIndicatorHeaderFooterView.h"
 
 @interface ServicesTableViewController ()
 @property (nonatomic, assign) NSInteger displayedItemCount;
@@ -19,16 +20,24 @@
 @property (nonatomic, assign) NSInteger numberOfAdditionalCells;
 @property (nonatomic, assign) NSInteger currentCellCount;
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) NSTimer *timer;
+
+@property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, assign) BOOL isLoadingMore;
 @end
 
 @implementation ServicesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UINib *xib = [UINib nibWithNibName:@"ActivityIndicatorHeaderFooterView" bundle:nil];
+    [self.tableView registerNib:xib forHeaderFooterViewReuseIdentifier:@"ActivityIndicatorHeaderFooterView"];
     // pull to refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
+    
+    [self.tableView.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     self.tableView.rowHeight = 100;
     
     // get data with split file.
@@ -47,15 +56,27 @@
     self.totalItemCount = dataArray.count;
     self.isLoading = NO;
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 #pragma mark - Pull to refresh
 
 - (void)handleRefresh:(UIRefreshControl *)refreshControl {
-    [self performSelector:@selector(refreshData) withObject:nil afterDelay:1.0];
-    [refreshControl endRefreshing];
+    double delayInSeconds = 2.0;
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    // Tạo một độ trễ 2 giây
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        // Gọi phương thức refreshData hoặc thực hiện công việc lấy dữ liệu ở đây
+        [self refreshData];
+        
+        // Kết thúc quá trình làm mới của self.tableView.refreshControl
+        [refreshControl endRefreshing];
+        
+        // Reload table view hoặc cập nhật giao diện tại đây
+    });
 }
+
+
 
 - (void)refreshData {
     [self.tableView reloadData];
@@ -66,18 +87,39 @@
 }
 
 #pragma mark - Load more data
+
+
 - (void)loadMoreData {
-    self.currentCellCount += 6;
-    [self.tableView reloadData];
+    NSLog(@"Anndy, loadMoreData!");
+    // Thực hiện công việc khi kéo xuống cuối cùng
+//    self.currentCellCount += 6;
+//    [self.tableView reloadData];
+    // Khi công việc hoàn thành, dừng hiển thị activityIndicator
+//    [self stopActivityIndicator];
 }
+
+
+
+
 
 // loading more data
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat contentHeight = scrollView.contentSize.height;
-    CGFloat scrollViewHeight = scrollView.frame.size.height;
+    CGFloat scrollViewHeight = scrollView.bounds.size.height;
     
     if (offsetY >= contentHeight - scrollViewHeight) {
+        // Hiển thị UIActivityIndicatorView
+        dispatch_async(
+            dispatch_get_main_queue(),
+            ^{
+                [self.activityIndicator startAnimating];
+                
+            }
+        );
+        
+        
+        // Thực hiện công việc khi kéo xuống cuối cùng
         [self loadMoreData];
     }
 }
@@ -99,28 +141,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = dataArray[indexPath.row % dataArray.count];
     
-    if (self.refreshControl.refreshing) {
-        WaitingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WaitingCell" forIndexPath:indexPath];
-        NSLog(@"Hello, WaitingTableViewCell!");
-        // Start or stop animation based on the display status
-        if (cell.waitingCell.isAnimating) {
-            [cell.waitingCell stopAnimating];
-        } else {
-            UIImage *image1 = [UIImage imageNamed:@"image1"];
-            UIImage *image2 = [UIImage imageNamed:@"image2"];
-            UIImage *image3 = [UIImage imageNamed:@"image3"];
-            
-            cell.waitingCell.animationImages = @[image1, image2, image3]; // Set the animation images
-            cell.waitingCell.animationDuration = 1.0; // Set the animation duration
-            cell.waitingCell.animationRepeatCount = 0; // Set the repeat count
-            [cell.waitingCell startAnimating];
-            
-        }
-        
-        return cell;
-    } else if (self.generateRandomNumber % 2 == 0) {
+   if (self.generateRandomNumber % 2 == 0) {
         FirstTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstCell" forIndexPath:indexPath];
-        NSLog(@"Hello, FirstTableViewCell!"); // In ra thông điệp "Hello, world!"
         // Configure the cell...
         cell.firstText.text = dict[@"Description"];
         cell.firstLabel.text = dict[@"Title"];
@@ -128,7 +150,6 @@
         return cell;
     } else {
         SecondTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SecondCell" forIndexPath:indexPath];
-        NSLog(@"Hello, SecondTableViewCell!"); // In ra thông điệp "Hello, world!"
         // Configure the cell...
         cell.secondLabel.text = dict[@"Title"];
         cell.secondText.text = dict[@"Description"];

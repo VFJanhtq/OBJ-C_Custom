@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *cellImage;
+@property (strong, nonatomic) IBOutlet UIImageView *cellImage;
 
 @end
 
